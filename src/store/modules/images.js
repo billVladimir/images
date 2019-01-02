@@ -15,6 +15,13 @@ const actions = {
     const response = await api.fetchImages(token);
     commit('setImages', response.data.data);
   },
+  async fetchFavorites({rootState, commit}) {
+    const {token} = rootState.auth;
+    const response = await api.fetchFavorites(token);
+    const images = [];
+    response.data.data.forEach((item) => images.push(...item.images));
+    commit('setImages', images);
+  },
   async uploadImages({rootState}, images) {
     // Get the assess token
     const { token } = rootState.auth;

@@ -7,6 +7,7 @@
         <div class="right menu">
             <div v-if="isLoggedIn" class="horizontal">
                 <router-link to="/" class="ui item">Galleries</router-link>
+                <router-link to="/favorite" class="ui item">Favorites</router-link>
                 <router-link to="/upload" class="ui item">Upload</router-link>
                 <a class="ui item" @click="logout">Logout</a>
             </div>
